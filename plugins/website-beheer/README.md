@@ -69,6 +69,7 @@ De plugin kent configuratie `version` 1; de dienst weigert een andere versie. Ve
 | `website.document`                  | Pad van het afsprakendocument in de repository                    |
 | `environments`                      | Adressen van voorbeeldversie, testsite en live website            |
 | `contentPaths`                      | Het beheergebied: alleen deze paden mag een wijzigingsronde raken |
+| `stylePaths`                        | Optioneel: de opmaak (CSS), die alleen een publiceerder wijzigt   |
 
 De overige velden (branches, controles, labels, `versionPath`) gebruikt de dienst.
 
