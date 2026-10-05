@@ -1,7 +1,7 @@
 {
   "name": "website-beheer",
   "displayName": "Websitebeheer",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Laat een medewerker zonder technische kennis een website aanpassen: wijziging op een preview bekijken, naar de testsite brengen en na expliciet akkoord publiceren, volgens de afspraken in de repository van de website.",
   "author": { "name": "Bureau Besef" },
   "license": "UNLICENSED"

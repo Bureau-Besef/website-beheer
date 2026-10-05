@@ -41,7 +41,12 @@ commit staat. Collega's uitnodigen gaat met de opdracht `uitnodigen` van de dien
    Upload plugin**. Voor één sessie zonder installatie: `claude --plugin-dir plugins/website-beheer`.
 3. **Updates.** Claude Code zoekt bij deze marketplace niet vanzelf naar updates. Zet dat aan via `/plugin` →
    **Marketplaces** → de marketplace → **Enable auto-update**, of werk bij met `/plugin` → **Installed** →
-   **Update now**.
+   **Update now**. Een update werkt na een herstart.
+
+   De Claude-app op dezelfde computer gebruikt de marketplace van Claude Code en ziet een nieuwe versie pas als die
+   is bijgewerkt: met auto-update vanzelf, anders met `/plugin` → **Marketplaces** → de marketplace → **Update
+   marketplace**. Daarna wordt de knop **Update** bij de plugin in de app actief. Een geüploade zip werkt niet vanzelf
+   bij: upload de zip van de nieuwe release.
 
 | Kanaal  | Branch | Marketplace           | Voor wie                                             |
 |---------|--------|-----------------------|------------------------------------------------------|
