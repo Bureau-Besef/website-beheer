@@ -1,6 +1,6 @@
 {
-  "name": "website-beheer",
-  "description": "Websitebeheer met Claude Code, stabiel kanaal",
+  "name": "website-beheer-test",
+  "description": "Websitebeheer met Claude Code, testkanaal",
   "owner": { "name": "Bureau Besef" },
   "plugins": [
     {
