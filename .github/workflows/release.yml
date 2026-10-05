@@ -1,0 +1,37 @@
+# Elke nieuwe stabiele versie (push naar main) levert een release plugin-website-beheer-<versie> met een zip om in
+# Claude te uploaden (Customize > Plugins > Upload plugin). Bestaat de release al, dan is de plugin niet gewijzigd.
+name: Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Zip en release maken
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "::error::Alleen main levert een release (gestart op $GITHUB_REF)"
+            exit 1
+          fi
+          versie=$(jq -r .version plugins/website-beheer/.claude-plugin/plugin.json)
+          tag="plugin-website-beheer-$versie"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag bestaat al."
+            exit 0
+          fi
+          zip="website-beheer-$versie.zip"
+          (cd plugins && zip -qr "../$zip" website-beheer)
+          gh release create "$tag" "$zip" --target "$GITHUB_SHA" \
+            --title "Websitebeheer $versie" \
+            --notes "Stabiele versie $versie. Uploaden in Claude: Customize > Plugins > Upload plugin, met $zip."

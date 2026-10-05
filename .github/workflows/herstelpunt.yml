@@ -1,0 +1,45 @@
+# Gedeelde workflow: een herstelpunt bij elke publicatie. Elke push naar branches.production krijgt een tag
+# <restorePointTagPrefix>JJJJ-MM-DD-UUMM (Nederlandse tijd) met een release die de pull requests sinds het vorige
+# herstelpunt opsomt. Aanroepen vanuit de website bij push naar de productiebranch, met permissions contents: write:
+#
+#   jobs:
+#     herstelpunt:
+#       uses: Bureau-Besef/website-beheer/.github/workflows/herstelpunt.yml@v1
+name: Herstelpunt
+
+on:
+  workflow_call:
+
+permissions:
+  contents: write
+
+jobs:
+  herstelpunt:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: herstelpunt-${{ github.repository }}
+    steps:
+      - name: Tag en release maken
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          config=$(gh api -H "Accept: application/vnd.github.raw" \
+            "repos/$GH_REPO/contents/.website-beheer/config.json?ref=$GITHUB_SHA")
+          productie=$(jq -r '.branches.production // empty' <<<"$config")
+          prefix=$(jq -r '.restorePointTagPrefix // empty' <<<"$config")
+          if [ -z "$productie" ] || [ -z "$prefix" ]; then
+            echo "::error::branches.production en restorePointTagPrefix horen in .website-beheer/config.json"
+            exit 1
+          fi
+          if [ "$GITHUB_REF" != "refs/heads/$productie" ]; then
+            echo "::error::Alleen $productie krijgt herstelpunten (gestart op $GITHUB_REF)"
+            exit 1
+          fi
+          if gh api "repos/$GH_REPO/tags" --paginate --jq '.[].commit.sha' | grep -qx "$GITHUB_SHA"; then
+            echo "Commit $GITHUB_SHA heeft al een herstelpunt"
+            exit 0
+          fi
+          tag="$prefix$(TZ=Europe/Amsterdam date +%Y-%m-%d-%H%M)"
+          gh release create "$tag" --target "$GITHUB_SHA" --latest --generate-notes \
+            --title "Productie $(TZ=Europe/Amsterdam date '+%-d-%-m-%Y %H:%M')"

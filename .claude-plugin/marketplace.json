@@ -1,0 +1,12 @@
+{
+  "name": "website-beheer",
+  "description": "Websitebeheer met Claude Code, stabiel kanaal",
+  "owner": { "name": "Bureau Besef" },
+  "plugins": [
+    {
+      "name": "website-beheer",
+      "description": "Website aanpassen, op een voorbeeldversie bekijken en na akkoord publiceren",
+      "source": "./plugins/website-beheer"
+    }
+  ]
+}

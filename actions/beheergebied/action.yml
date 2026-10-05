@@ -1,0 +1,55 @@
+# Een wijzigingsronde van de plugin (label roundLabel of branch met branchPrefix) mag alleen contentPaths raken.
+# De configuratie komt van de doelbranch, zodat een pull request zijn eigen grenzen niet kan verruimen.
+# Gebruik als stap in de verplichte job van de website, bij pull_request met de types opened, synchronize,
+# reopened, labeled en unlabeled (een label achteraf moet de controle opnieuw laten lopen).
+name: Beheergebied
+description: Controleer dat een wijzigingsronde van de plugin Websitebeheer alleen contentPaths wijzigt
+
+inputs:
+  token:
+    description: Token om de configuratie en de bestanden van de pull request te lezen
+    default: ${{ github.token }}
+
+runs:
+  using: composite
+  steps:
+    - name: Beheergebied
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        GH_REPO: ${{ github.repository }}
+        EVENT: ${{ github.event_name }}
+        BASE: ${{ github.base_ref }}
+        PR: ${{ github.event.pull_request.number }}
+        HEAD_REF: ${{ github.head_ref }}
+        LABELS: ${{ join(github.event.pull_request.labels.*.name, ' ') }}
+      run: |
+        if [ "$EVENT" != pull_request ]; then
+          echo "Geen pull request."
+          exit 0
+        fi
+        config=$(gh api -H "Accept: application/vnd.github.raw" \
+          "repos/$GH_REPO/contents/.website-beheer/config.json?ref=$BASE")
+        label=$(jq -r '.roundLabel // empty' <<<"$config")
+        prefix=$(jq -r '.branchPrefix // empty' <<<"$config")
+        if ! { [ -n "$label" ] && [[ " $LABELS " == *" $label "* ]]; } &&
+           ! { [ -n "$prefix" ] && [[ "$HEAD_REF" == "$prefix"* ]]; }; then
+          echo "Geen wijzigingsronde van de plugin."
+          exit 0
+        fi
+        mapfile -t paden < <(jq -r '.contentPaths[]' <<<"$config")
+        if [ ${#paden[@]} -eq 0 ]; then
+          echo "::error::Geen contentPaths in .website-beheer/config.json op $BASE"
+          exit 1
+        fi
+        buiten=$(gh api --paginate "repos/$GH_REPO/pulls/$PR/files" --jq '.[] | .filename, (.previous_filename // empty)' |
+          while read -r f; do
+            ok=; for p in "${paden[@]}"; do if [[ "$f" == "$p"* ]]; then ok=1; fi; done
+            if [ -z "$ok" ]; then echo "$f"; fi
+          done)
+        if [ -n "$buiten" ]; then
+          echo "::error::Een wijzigingsronde van de plugin mag alleen ${paden[*]} wijzigen. Buiten het beheergebied:"
+          echo "$buiten"
+          exit 1
+        fi
+        echo "Alle wijzigingen vallen binnen ${paden[*]}."

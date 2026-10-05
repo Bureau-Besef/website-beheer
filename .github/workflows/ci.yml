@@ -1,0 +1,60 @@
+# De job heet "controles": die naam gebruikt de ruleset als verplichte check.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, test]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  controles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PLUGIN: plugins/website-beheer
+      DOEL: ${{ github.base_ref || github.ref_name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Workflows
+        run: docker run --rm -v "$PWD:/repo" --workdir /repo rhysd/actionlint:1.7.7 -color
+      - name: Geldige JSON
+        run: |
+          jq empty .claude-plugin/marketplace.json "$PLUGIN/.claude-plugin/plugin.json"
+      # Elke branch is een eigen marketplace; een merge van test naar main mag de naam niet meenemen.
+      - name: Naam van de marketplace
+        run: |
+          case "$DOEL" in
+            main) verwacht=website-beheer ;;
+            test) verwacht=website-beheer-test ;;
+            *) echo "Geen kanaalbranch: $DOEL"; exit 0 ;;
+          esac
+          naam=$(jq -r .name .claude-plugin/marketplace.json)
+          if [ "$naam" != "$verwacht" ]; then
+            echo "::error::marketplace.json heet op $DOEL '$naam', verwacht '$verwacht'"
+            exit 1
+          fi
+      # Claude Code herkent een update aan version: een gewijzigde plugin zonder hogere versie bereikt niemand.
+      - name: Versienummer verhoogd
+        if: github.event_name == 'pull_request'
+        run: |
+          if git diff --quiet "origin/$DOEL" HEAD -- "$PLUGIN"; then
+            echo "Plugin ongewijzigd."
+            exit 0
+          fi
+          nieuw=$(jq -r .version "$PLUGIN/.claude-plugin/plugin.json")
+          oud=$(git show "origin/$DOEL:$PLUGIN/.claude-plugin/plugin.json" 2>/dev/null | jq -r .version || true)
+          hoogste=$(printf '%s\n%s\n' "$oud" "$nieuw" | sort -V | tail -n1)
+          if [ -n "$oud" ] && { [ "$nieuw" = "$oud" ] || [ "$hoogste" != "$nieuw" ]; }; then
+            echo "::error::De plugin is gewijzigd: verhoog version in plugin.json (nu $nieuw, op $DOEL $oud)"
+            exit 1
+          fi
+          echo "Versie $oud -> $nieuw"
