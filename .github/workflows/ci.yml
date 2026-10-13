@@ -29,6 +29,20 @@ jobs:
       - name: Geldige JSON
         run: |
           jq empty .claude-plugin/marketplace.json "$PLUGIN/.claude-plugin/plugin.json"
+      # ChatGPT leest geen bestanden buiten de map van een skill: elke skill heeft een kopie van werkomgeving.md.
+      - name: Kopieën van werkomgeving.md
+        run: |
+          fout=0
+          for skill in "$PLUGIN"/skills/*/; do
+            if ! cmp -s "$PLUGIN/reference/werkomgeving.md" "${skill}references/werkomgeving.md"; then
+              echo "::error::${skill}references/werkomgeving.md wijkt af van reference/werkomgeving.md"
+              fout=1
+            fi
+          done
+          if [ "$fout" = 1 ]; then
+            echo "Kopieer opnieuw: for d in $PLUGIN/skills/*/; do cp $PLUGIN/reference/werkomgeving.md \"\${d}references/\"; done"
+            exit 1
+          fi
       # Elke branch is een eigen marketplace; een merge van test naar main mag de naam niet meenemen.
       - name: Naam van de marketplace
         run: |

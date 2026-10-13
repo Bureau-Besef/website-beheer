@@ -20,12 +20,12 @@ die er toevallig wel zijn.
 
 - **Geen opdrachten van Websitebeheer beschikbaar:** de connector ontbreekt of is niet verbonden. Meld:
 
-  > Ik kan de website nu niet aanpassen: Websitebeheer is hier niet verbonden. Zet in Claude bij **Instellingen →
-  > Connectors** de connector Websitebeheer aan, of vraag de technisch beheerder om hulp.
+  > Ik kan de website nu niet aanpassen: Websitebeheer is hier niet verbonden. Zet in de instellingen van deze app
+  > de koppeling (connector) Websitebeheer aan, of vraag de technisch beheerder om hulp.
 
-- **Een opdracht ontbreekt** terwijl andere er wel zijn: Claude kent nog een oude lijst. Vraag de gebruiker de
-  connector bij **Instellingen → Connectors** te verbreken en opnieuw te verbinden, en daarna een nieuwe chat te
-  beginnen.
+- **Een opdracht ontbreekt** terwijl andere er wel zijn: de app kent nog een oude lijst. Vraag de gebruiker de
+  koppeling Websitebeheer in de instellingen van de app te verbreken en opnieuw te verbinden, en daarna een nieuwe
+  chat te beginnen.
 - **Niet ingelogd of geen toegang:** vraag de gebruiker een nieuwe uitnodiging aan een publiceerder van de website.
 - **Een weigering** (een antwoord in gewone taal, zonder "Voor de technisch beheerder"): die is voor de gebruiker
   bedoeld; geef hem kort door.

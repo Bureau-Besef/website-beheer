@@ -1,5 +1,6 @@
 # Elke nieuwe stabiele versie (push naar main) levert een release plugin-website-beheer-<versie> met een zip om in
-# Claude te uploaden (Customize > Plugins > Upload plugin). Bestaat de release al, dan is de plugin niet gewijzigd.
+# Claude (Customize > Plugins > Upload plugin) of ChatGPT te uploaden. Bestaat de release al, dan is de plugin niet
+# gewijzigd.
 name: Release
 
 on:
@@ -34,4 +35,4 @@ jobs:
           (cd plugins && zip -qr "../$zip" website-beheer)
           gh release create "$tag" "$zip" --target "$GITHUB_SHA" \
             --title "Websitebeheer $versie" \
-            --notes "Stabiele versie $versie. Uploaden in Claude: Customize > Plugins > Upload plugin, met $zip."
+            --notes "Stabiele versie $versie. Uploaden met $zip: in Claude bij Customize > Plugins > Upload plugin, in ChatGPT zie de README van de plugin."

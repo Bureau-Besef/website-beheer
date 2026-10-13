@@ -7,7 +7,7 @@ description: Leg een wens voor nieuwe functionaliteit of een andere opmaak vast 
 
 Een wens buiten het beheergebied (`werkomgeving.md` §4) voert de plugin niet zelf uit: die wordt met de opdracht `wens`
 een goed omschreven issue, dat de technisch beheerder beoordeelt en bouwt. Gedeelde stappen en regels staan in
-`${CLAUDE_SKILL_DIR}/../../reference/werkomgeving.md`; lees dat eerst en voer §1 en §2 uit.
+`references/werkomgeving.md` (in de map van deze skill); lees dat eerst en voer §1 en §2 uit.
 
 1. **Splitsen.** Valt een deel van de wens binnen het beheergebied (een tekst, een foto), voer dat deel dan uit met de
    skill `website-wijzigen` en geef hier alleen de rest door. Zeg de gebruiker welk deel waar heen gaat.

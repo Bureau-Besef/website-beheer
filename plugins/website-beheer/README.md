@@ -1,10 +1,10 @@
 # Websitebeheer
 
-Plugin voor Claude waarmee een medewerker zonder technische kennis een website laat aanpassen. De medewerker
+Plugin voor Claude en ChatGPT waarmee een medewerker zonder technische kennis een website laat aanpassen. De medewerker
 beschrijft de wens in gewone taal, bekijkt een voorbeeldversie en geeft zelf akkoord voor publicatie.
 
-De plugin werkt via de dienst Websitebeheer van Bureau Besef, een connector in Claude. Alleen de dienst praat met
-GitHub: de medewerker heeft geen GitHub-account, geen clone en geen `git` of `gh` nodig. De dienst kent per
+De plugin werkt via de dienst Websitebeheer van Bureau Besef, een connector (koppeling) in de app. Alleen de dienst
+praat met GitHub: de medewerker heeft geen GitHub-account, geen clone en geen `git` of `gh` nodig. De dienst kent per
 medewerker de websites en de rol (redacteur of publiceerder) en dwingt die af; de plugin bevat de werkwijze.
 Alles wat per website verschilt, staat in de websiterepository zelf: `.website-beheer/config.json` en het
 afsprakendocument waar `website.document` naar wijst. De plugin leest die via de dienst.
@@ -20,7 +20,9 @@ afsprakendocument waar `website.document` naar wijst. De plugin leest die via de
 
 `reference/werkomgeving.md` bevat wat de skills delen: de opdrachten van de dienst, website en afspraken kiezen,
 wat te doen als de dienst niet werkt, de stand van de wijzigingsronde, het beheergebied, wachten op een omgeving en
-de regels voor meldingen.
+de regels voor meldingen. ChatGPT leest geen bestanden buiten de map van een skill; daarom heeft elke skill een kopie
+in `references/werkomgeving.md`. Wijzig alleen `reference/werkomgeving.md` en kopieer het daarna naar elke skill; de
+controles weigeren een kopie die afwijkt.
 
 Het akkoord legt de dienst vast als reactie bij de pull request naar de productiebranch, met de naam van de
 publiceerder en diens letterlijke bevestiging, en voegt alleen samen als die pull request nog op de goedgekeurde
@@ -58,6 +60,18 @@ Het testkanaal: `/plugin marketplace add Bureau-Besef/website-beheer#test` en
 
 De plugin werkt in Claude Code, Cowork en de Claude-app, ook op een telefoon. Krijgt de dienst nieuwe opdrachten,
 dan onthoudt Claude nog de oude lijst: verbreek de connector en verbind opnieuw, en begin een nieuwe chat.
+
+### ChatGPT
+
+ChatGPT leest dezelfde plugin: de skills, het manifest `.claude-plugin/plugin.json` en de marketplace. Er is maar
+één versie te beheren. Dit is nog niet in de praktijk getest.
+
+1. **Connector.** De dienst Websitebeheer werkt nog niet als connector in ChatGPT: daarvoor moet de dienst de
+   aanmelding van ChatGPT ondersteunen. Een connector in ChatGPT vraagt ChatGPT Business, Enterprise of Edu.
+2. **Plugin.** Upload de zip van de nieuwste release `plugin-website-beheer-<versie>` in ChatGPT, of voeg in de
+   ChatGPT-desktopapp de marketplace `Bureau-Besef/website-beheer` toe. Hoe een werkruimte de plugin voor alle
+   medewerkers installeert zonder hem openbaar te maken, is nog niet uitgezocht.
+3. **Gebruiken.** Een medewerker start een skill met `@website-wijzigen` in plaats van `/website-wijzigen`.
 
 ## Configuratie
 
