@@ -10,6 +10,9 @@ de README van de dienst, §Plugin en gedeelde controles; lees die eerst. Install
   andere betekenis van een veld is een nieuwe configuratie-`version`; leg dat vast in de plugin-README.
 - De repository is openbaar: geen toegangsgegevens, klantgegevens of interne adressen.
 - De plugin spreekt Nederlands met de medewerker; schrijf skills en documentatie in het Nederlands.
+- Dezelfde plugin werkt ook in ChatGPT: geen `${CLAUDE_SKILL_DIR}` of andere Claude-variabelen in een skill, geen
+  menu's of namen van één app in wat de medewerker te lezen krijgt, en wat een skill leest staat in de map van die
+  skill. `reference/werkomgeving.md` is de bron; kopieer het na een wijziging naar `references/` in elke skill.
 - `actions/` en `.github/workflows/herstelpunt.yml` draaien bij alle websites via de tag `v1`: alleen wijzigingen
   die met de bestaande configuratie blijven werken; zet `v1` na de merge naar `main` op de nieuwe commit. Een breuk
   wordt `v2`.

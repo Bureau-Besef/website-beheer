@@ -6,7 +6,7 @@ description: Pas de website aan en laat een voorbeeldversie zien. Gebruik wannee
 # Website wijzigen tot voorbeeldversie
 
 Van wens tot een voorbeeldversie (preview) die de gebruiker kan bekijken. Gedeelde stappen en regels staan in
-`${CLAUDE_SKILL_DIR}/../../reference/werkomgeving.md`; lees dat eerst.
+`references/werkomgeving.md` (in de map van deze skill); lees dat eerst.
 
 1. **Werkomgeving.** Voer §1 tot en met §3 van `werkomgeving.md` uit. Bij stand *voorbeeldversie* is dit een
    vervolgwijziging in de lopende ronde. Bij *klaar op test*: vraag of de nieuwe wens kan wachten tot de vorige is
@@ -15,7 +15,7 @@ Van wens tot een voorbeeldversie (preview) die de gebruiker kan bekijken. Gedeel
    Ontbreekt een gegeven als een prijs, adres of openingstijd, vraag het; verzin het niet.
 3. **Lezen.** Zoek met `bestanden` en `lees` de bestanden die de wijziging raakt, met `ronde: true` als er een ronde
    loopt (anders zie je de testsite en mis je de eerdere wijzigingen van deze ronde).
-4. **Wijzigen.** Pas alleen bestanden onder `contentPaths` aan, volgens de afspraken, `CLAUDE.md` en `README.md`.
+4. **Wijzigen.** Pas alleen bestanden onder `contentPaths` aan (een publiceerder ook de CSS onder `stylePaths`), volgens de afspraken, `CLAUDE.md` en `README.md`.
    Een nieuwe of gewijzigde tekst komt in alle talen uit de instellingen; vertaal wat de gebruiker niet zelf
    aanlevert. Een nieuwe afbeelding: verklein die tot de grootte waarop de site hem toont en zet breedte en hoogte in
    de inhoud gelijk aan het bestand.
