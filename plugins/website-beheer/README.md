@@ -64,10 +64,13 @@ dan onthoudt Claude nog de oude lijst: verbreek de connector en verbind opnieuw,
 ### ChatGPT
 
 ChatGPT leest dezelfde plugin: de skills, het manifest `.claude-plugin/plugin.json` en de marketplace. Er is maar
-één versie te beheren. Dit is nog niet in de praktijk getest.
+één versie te beheren. De connector werkt in ChatGPT; de plugin is daar nog niet in de praktijk getest.
 
-1. **Connector.** De dienst Websitebeheer werkt nog niet als connector in ChatGPT: daarvoor moet de dienst de
-   aanmelding van ChatGPT ondersteunen. Een connector in ChatGPT vraagt ChatGPT Business, Enterprise of Edu.
+1. **Connector.** Voeg de connector toe op de website chatgpt.com (in de app kan dat nog niet): **Instellingen →
+   Plug-ins → Catalogus bekijken → Toevoegen → Aangepaste MCP-server maken**, met een naam en het adres dat de
+   technisch beheerder geeft, en log in met de passkey. Na het inloggen toont ChatGPT het adres in het zoekveld met
+   "Geen plug-ins gevonden"; de connector is dan wel aangemaakt. Maak het zoekveld leeg en zet de connector aan in een
+   gesprek.
 2. **Plugin.** Upload de zip van de nieuwste release `plugin-website-beheer-<versie>` in ChatGPT, of voeg in de
    ChatGPT-desktopapp de marketplace `Bureau-Besef/website-beheer` toe. Hoe een werkruimte de plugin voor alle
    medewerkers installeert zonder hem openbaar te maken, is nog niet uitgezocht.
