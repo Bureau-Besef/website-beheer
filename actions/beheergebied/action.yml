@@ -1,9 +1,10 @@
-# Een wijzigingsronde van de plugin (label roundLabel of branch met branchPrefix) mag alleen contentPaths raken.
+# Een wijzigingsronde van de plugin (label roundLabel of branch met branchPrefix) mag alleen contentPaths en stylePaths
+# raken. Dat alleen een publiceerder stylePaths wijzigt, dwingt de dienst af.
 # De configuratie komt van de doelbranch, zodat een pull request zijn eigen grenzen niet kan verruimen.
 # Gebruik als stap in de verplichte job van de website, bij pull_request met de types opened, synchronize,
 # reopened, labeled en unlabeled (een label achteraf moet de controle opnieuw laten lopen).
 name: Beheergebied
-description: Controleer dat een wijzigingsronde van de plugin Websitebeheer alleen contentPaths wijzigt
+description: Controleer dat een wijzigingsronde van de plugin Websitebeheer alleen contentPaths en stylePaths wijzigt
 
 inputs:
   token:
@@ -37,7 +38,7 @@ runs:
           echo "Geen wijzigingsronde van de plugin."
           exit 0
         fi
-        mapfile -t paden < <(jq -r '.contentPaths[]' <<<"$config")
+        mapfile -t paden < <(jq -r '.contentPaths[], (.stylePaths // [])[]' <<<"$config")
         if [ ${#paden[@]} -eq 0 ]; then
           echo "::error::Geen contentPaths in .website-beheer/config.json op $BASE"
           exit 1
