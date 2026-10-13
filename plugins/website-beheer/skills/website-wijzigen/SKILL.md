@@ -6,7 +6,7 @@ description: Pas de website aan en laat een voorbeeldversie zien. Gebruik wannee
 # Website wijzigen tot voorbeeldversie
 
 Van wens tot een voorbeeldversie (preview) die de gebruiker kan bekijken. Gedeelde stappen en regels staan in
-`${CLAUDE_SKILL_DIR}/../../reference/werkomgeving.md`; lees dat eerst.
+`references/werkomgeving.md` (in de map van deze skill); lees dat eerst.
 
 1. **Werkomgeving.** Voer §1 tot en met §3 van `werkomgeving.md` uit. Bij stand *voorbeeldversie* is dit een
    vervolgwijziging in de lopende ronde. Bij *klaar op test*: vraag of de nieuwe wens kan wachten tot de vorige is

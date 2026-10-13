@@ -6,7 +6,7 @@ description: Draai een gepubliceerde wijziging terug of zet de website terug naa
 # Herstellen
 
 Herstel is een gewone wijzigingsronde die iets terugzet: voorbeeldversie, testsite, expliciet akkoord, live website.
-Gedeelde stappen en regels staan in `${CLAUDE_SKILL_DIR}/../../reference/werkomgeving.md`; lees dat eerst en voer
+Gedeelde stappen en regels staan in `references/werkomgeving.md` (in de map van deze skill); lees dat eerst en voer
 §1 tot en met §3 uit. Loopt er al een ronde, bespreek dan eerst met de gebruiker wat daarmee moet gebeuren.
 
 1. **Wat ging mis.** Laat de gebruiker beschrijven wat er mis is, op welke pagina's en in welke talen, en sinds

@@ -5,7 +5,7 @@ description: Breng een goedgekeurde voorbeeldversie naar de testsite en publicee
 
 # Naar test en publiceren
 
-Gedeelde stappen en regels staan in `${CLAUDE_SKILL_DIR}/../../reference/werkomgeving.md`; lees dat eerst en voer
+Gedeelde stappen en regels staan in `references/werkomgeving.md` (in de map van deze skill); lees dat eerst en voer
 §1 tot en met §3 uit. De stand bepaalt waar je begint: *voorbeeldversie* bij deel A, *klaar op test* bij deel B. Bij
 *geen ronde* is er niets te publiceren; zeg dat.
 
@@ -29,8 +29,8 @@ Een verzoek om iets aan te passen of tevredenheid over een voorbeeldversie is ge
 na een ondubbelzinnig "ja, publiceer" dat aantoonbaar slaat op de huidige testversie; vraag bij twijfel opnieuw.
 
 Alleen een publiceerder mag publiceren (de rol staat in `status`). Is de gebruiker redacteur, publiceer dan niet en
-meld: "De nieuwe versie staat klaar op de testwebsite. Een publiceerder van jullie kan die in Claude laten
-publiceren." Noem de link naar de testsite.
+meld: "De nieuwe versie staat klaar op de testwebsite. Een publiceerder van jullie kan die laten publiceren."
+Noem de link naar de testsite.
 
 1. **Te publiceren versie.** Vraag `ronde`. De versie is `test.commit`; de controles daarvan moeten geslaagd zijn en de
    testsite actueel. `nietLive` toont wat er live komt: alles daarvan moet door de gebruiker beoordeeld zijn. Staat
