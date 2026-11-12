@@ -39,6 +39,9 @@ vervolgskill zet in zijn beschrijving waar hij op reageert, zodat elke plugin ze
 description: "Bureau Besef: na publicatie. Alleen bij nieuwe artikelen: maakt er een nieuwsbrief van."
 ```
 
+Een uitgewerkt voorbeeld staat in `voorbeelden/nieuwsbrief-maken/SKILL.md` in deze repository. Het hoort niet bij de
+plugin: zet een vervolgskill in een eigen plugin, zodat alleen wie hem nodig heeft hem installeert.
+
 ## Installeren
 
 1. **Connector.** Voeg in Claude bij **Instellingen → Connectors** de connector Websitebeheer toe met het adres dat
