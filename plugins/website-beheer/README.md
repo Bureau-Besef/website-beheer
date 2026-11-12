@@ -28,6 +28,17 @@ Het akkoord legt de dienst vast als reactie bij de pull request naar de producti
 publiceerder en diens letterlijke bevestiging, en voegt alleen samen als die pull request nog op de goedgekeurde
 commit staat. Collega's uitnodigen gaat met de opdracht `uitnodigen` van de dienst (alleen voor publiceerders).
 
+### Vervolgacties na publicatie
+
+Na een publicatie meldt `website-publiceren` wat er live staat (soort wijziging, titel, link) en zoekt dan skills,
+ook uit andere plugins, waarvan de beschrijving "Bureau Besef: na publicatie" bevat. Past zo'n skill bij de
+wijziging, dan vraagt de plugin de gebruiker of die gestart moet worden; zonder bevestiging start er niets. Een
+vervolgskill zet in zijn beschrijving waar hij op reageert, zodat elke plugin zelf bepaalt wanneer hij van pas komt:
+
+```yaml
+description: "Bureau Besef: na publicatie. Alleen bij nieuwe artikelen: maakt er een nieuwsbrief van."
+```
+
 ## Installeren
 
 1. **Connector.** Voeg in Claude bij **Instellingen → Connectors** de connector Websitebeheer toe met het adres dat
