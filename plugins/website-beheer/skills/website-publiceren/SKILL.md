@@ -41,7 +41,13 @@ Noem de link naar de testsite.
    begin opnieuw bij stap 1 en vraag het akkoord opnieuw.
 3. **Live controleren.** Wacht met `ronde` tot `live.omgeving` actueel is (`werkomgeving.md` §5) en bekijk de
    gewijzigde pagina's op de live website.
-4. **Melden.** Geef de gebruiker de links naar de gewijzigde pagina's op de live website.
+4. **Melden.** Meld kort per wijziging wat er live staat: het soort wijziging (nieuw artikel, aangepaste pagina,
+   nieuwe afbeelding, teruggezette pagina enzovoort), de titel en de link op de live website.
+5. **Vervolgacties aanbieden.** Kijk of er skills zijn waarvan de beschrijving "Bureau Besef: na publicatie" bevat;
+   zo'n skill zegt in zijn beschrijving bij welke wijzigingen hij past. Past er een bij deze wijziging, vraag de
+   gebruiker dan of die gestart moet worden, met in één zin wat hij doet. Start nooit iets zonder bevestiging. Past
+   er geen, zeg dan niets.
 
-Klaar wanneer de live website de nieuwe versie toont, de pagina's kloppen en de gebruiker het resultaat heeft. Meld
-een publicatie nooit als geslaagd voordat de live website de juiste versie toont.
+Klaar wanneer de live website de nieuwe versie toont, de pagina's kloppen, de gebruiker het resultaat heeft en
+passende vervolgacties zijn aangeboden. Meld een publicatie nooit als geslaagd voordat de live website de juiste
+versie toont.
