@@ -17,6 +17,7 @@ afsprakendocument waar `website.document` naar wijst. De plugin leest die via de
 | `website-publiceren`     | Na tevredenheid naar de testsite; na expliciet akkoord van een publiceerder live     |
 | `website-herstellen`     | Na een fout terug naar een herstelpunt (eerdere publicatie), via dezelfde route      |
 | `website-wens-doorgeven` | Wens buiten de inhoud (functionaliteit, opmaak) als issue voor de technisch beheerder |
+| `website-skill-maken`    | Met de medewerker een eigen vervolgskill maken, proberen en aanbieden om op te slaan |
 
 `reference/werkomgeving.md` bevat wat de skills delen: de opdrachten van de dienst, website en afspraken kiezen,
 wat te doen als de dienst niet werkt, de stand van de wijzigingsronde, het beheergebied, wachten op een omgeving en
@@ -28,19 +29,33 @@ Het akkoord legt de dienst vast als reactie bij de pull request naar de producti
 publiceerder en diens letterlijke bevestiging, en voegt alleen samen als die pull request nog op de goedgekeurde
 commit staat. Collega's uitnodigen gaat met de opdracht `uitnodigen` van de dienst (alleen voor publiceerders).
 
-### Vervolgacties na publicatie
+### Vervolgacties
 
-Na een publicatie meldt `website-publiceren` wat er live staat (soort wijziging, titel, link) en zoekt dan skills,
-ook uit andere plugins, waarvan de beschrijving "Bureau Besef: na publicatie" bevat. Past zo'n skill bij de
-wijziging, dan vraagt de plugin de gebruiker of die gestart moet worden; zonder bevestiging start er niets. Een
-vervolgskill zet in zijn beschrijving waar hij op reageert, zodat elke plugin zelf bepaalt wanneer hij van pas komt:
+Op drie momenten zoekt de plugin skills, ook uit andere plugins of eigen skills van de medewerker, waarvan de
+beschrijving een vaste openingszin bevat:
+
+| Moment                 | Openingszin                         | Skill die zoekt                                       |
+|------------------------|-------------------------------------|-------------------------------------------------------|
+| Na een voorbeeldversie | `Bureau Besef: na voorbeeldversie.` | `website-wijzigen`, na het melden van de voorbeeldversie |
+| Voor publicatie        | `Bureau Besef: voor publicatie.`    | `website-publiceren`, vóór de vraag om akkoord        |
+| Na publicatie          | `Bureau Besef: na publicatie.`      | `website-publiceren`, na het melden van wat live staat |
+
+Past zo'n skill bij de wijziging, dan vraagt de plugin de gebruiker of die gestart moet worden; zonder bevestiging
+start er niets. Een vervolgskill zet in zijn beschrijving waar hij op reageert, zodat elke skill zelf bepaalt wanneer
+hij van pas komt:
 
 ```yaml
 description: "Bureau Besef: na publicatie. Alleen bij nieuwe artikelen: maakt er een nieuwsbrief van."
 ```
 
+Een medewerker maakt zo'n skill zelf met `website-skill-maken`; die zet er de vaste regels in (nooit zelf publiceren,
+aanpassen alleen via de voorbeeldversie, niet reageren op de eigen aanpassing) en biedt hem aan om op te slaan, alleen
+voor die medewerker. Een vervolgskill die alle klanten van een organisatie nodig hebben, zet je in een eigen plugin.
+
 Een uitgewerkt voorbeeld staat in `voorbeelden/nieuwsbrief-maken/SKILL.md` in deze repository. Het hoort niet bij de
-plugin: zet een vervolgskill in een eigen plugin, zodat alleen wie hem nodig heeft hem installeert.
+plugin als werkende skill; `website-skill-maken` heeft een kopie als voorbeeld in
+`references/voorbeeld-nieuwsbrief-maken.md`. Wijzig alleen `voorbeelden/nieuwsbrief-maken/SKILL.md` en kopieer het
+daarna; de controles weigeren een kopie die afwijkt.
 
 ## Installeren
 

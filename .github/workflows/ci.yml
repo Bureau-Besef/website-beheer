@@ -43,6 +43,14 @@ jobs:
             echo "Kopieer opnieuw: for d in $PLUGIN/skills/*/; do cp $PLUGIN/reference/werkomgeving.md \"\${d}references/\"; done"
             exit 1
           fi
+      # website-skill-maken leest het voorbeeld uit zijn eigen map; de bron staat in voorbeelden/.
+      - name: Kopie van het voorbeeld
+        run: |
+          if ! cmp -s voorbeelden/nieuwsbrief-maken/SKILL.md "$PLUGIN/skills/website-skill-maken/references/voorbeeld-nieuwsbrief-maken.md"; then
+            echo "::error::voorbeeld-nieuwsbrief-maken.md wijkt af van voorbeelden/nieuwsbrief-maken/SKILL.md"
+            echo "Kopieer opnieuw: cp voorbeelden/nieuwsbrief-maken/SKILL.md $PLUGIN/skills/website-skill-maken/references/voorbeeld-nieuwsbrief-maken.md"
+            exit 1
+          fi
       # Elke branch is een eigen marketplace; een merge van test naar main mag de naam niet meenemen.
       - name: Naam van de marketplace
         run: |

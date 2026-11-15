@@ -31,9 +31,14 @@ Van wens tot een voorbeeldversie (preview) die de gebruiker kan bekijken. Gedeel
    doe dat dan op desktop- en mobiele breedte.
 7. **Melden.** Geef de gebruiker de links naar de gewijzigde pagina's op de voorbeeldversie, een korte samenvatting,
    eventuele aandachtspunten (vertalingen) en vraag: tevreden, of iets aanpassen?
+8. **Vervolgacties aanbieden.** Kijk of er skills zijn waarvan de beschrijving "Bureau Besef: na voorbeeldversie"
+   bevat; zo'n skill zegt in zijn beschrijving bij welke wijzigingen hij past. Past er een bij deze wijziging, vraag
+   de gebruiker dan of die gestart moet worden, met in één zin wat hij doet. Start nooit iets zonder bevestiging. Past
+   er geen, zeg dan niets.
 
 Wil de gebruiker de wijziging niet meer, stop de ronde dan met `sluit_ronde` en een korte reden.
 
-Klaar wanneer de voorbeeldversie de laatste commit toont, de controles geslaagd zijn en de gebruiker de links heeft.
+Klaar wanneer de voorbeeldversie de laatste commit toont, de controles geslaagd zijn, de gebruiker de links heeft en
+passende vervolgacties zijn aangeboden.
 Een "ja, zo is het goed" is akkoord met de voorbeeldversie, nog geen publicatieakkoord: daarvoor is de skill
 `website-publiceren`.
