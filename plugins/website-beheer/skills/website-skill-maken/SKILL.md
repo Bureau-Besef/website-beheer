@@ -28,29 +28,54 @@ er zelf om vraagt.
 
 ## Stappen
 
-1. **Wens.** Vraag wat er moet gebeuren en vraag om één voorbeeld: "Wat had je de vorige keer graag gekregen?"
+Neem de gebruiker stap voor stap mee door vijf stappen: wat, wanneer, bij welke wijzigingen, proef en opslaan. Begin
+elk bericht met de stap waar je bent ("Stap 2 van 5: wanneer"). Stel per bericht één vraag, met genummerde keuzes
+waaruit de gebruiker alleen hoeft te kiezen en als laatste keuze "iets anders". Vraag de gebruiker niet om zelf een
+voorbeeld te bedenken; maak het zelf, met een wijziging die de gebruiker kent. Wat je tussendoor zelf uitzoekt
+(soort, overlap, schrijven), meld je niet.
+
+1. **Uitleg.** Begin met een korte uitleg van wat een vaste stap is, in deze geest, en ga in hetzelfde bericht door
+   met stap 1 van 5:
+
+   > Een vaste stap is een taak die ik voortaan vanzelf aanbied op een vast moment, bijvoorbeeld zodra een wijziging
+   > live staat. Jij zegt dan alleen ja of nee; zonder jouw ja gebeurt er niets. Zo'n stap kan bijvoorbeeld:
+   > - na publicatie van een nieuw artikel een LinkedIn-bericht of nieuwsbrieftekst klaarzetten;
+   > - vóór publicatie de spelling en de links nalopen;
+   > - bij een voorbeeldversie advies geven om de pagina duidelijker te maken.
+   >
+   > We maken hem in vijf korte stappen: wat, wanneer, bij welke wijzigingen, een proef, en opslaan.
+
+2. **Stap 1 van 5: wat.** Zoek met `status` en `ronde` of `herstelpunten` de laatste wijziging op en noem die in één
+   zin. Vraag wat de gebruiker na zo'n wijziging voortaan van je wil krijgen, met keuzes die bij die wijziging passen:
+   een controle, een tekst om te delen, advies, of de website zelf bijwerken na een voorstel. Is er nog geen
+   wijziging, gebruik dan deze keuzes zonder voorbeeld.
    - Doet een bestaande skill dit al, zeg dat en stop.
    - Is het techniek (een formulier, een koppeling, een nieuw soort pagina, automatisch versturen of plaatsen), dan
      wordt het geen skill: geef het door met `website-wens-doorgeven`.
-2. **Moment en afbakening.** Vraag met keuzes welk moment (tabel hierboven), en of de skill bij elke wijziging past of
-   alleen bij een bepaald soort ("alleen bij nieuwe artikelen", "alleen als er een foto bij komt").
-3. **Soort.** Bepaal het zelf als het uit de wens blijkt, vraag het anders:
-   - **Advies of tekst:** de skill geeft advies of schrijft een tekst (nieuwsbrief, bericht, checklist). Hij verstuurt
-     of plaatst niets; dat doet de gebruiker.
-   - **Website aanpassen:** de skill stelt voor wat er verandert, vraagt welke punten de gebruiker wil, en voert die
-     uit via `website-wijzigen`.
-4. **Overlap.** Bekijk de beschikbare skills met hetzelfde moment. Doen ze iets vergelijkbaars, stel dan een
-   afbakening voor zodat ze elkaar niet in de weg zitten.
-5. **Schrijven.** Schrijf de skill volgens het sjabloon hieronder, met de vaste regels voor zijn soort en moment.
-   Hooguit zes stappen, in de woorden van de gebruiker. Schrijf alleen wat de skill nodig heeft; geen namen of
-   adressen die niet van de gebruiker komen.
-6. **Proefdraaien.** Laat zien wat de skill zou doen bij de laatste voorbeeldversie of publicatie (`status`, `ronde`,
-   `herstelpunten`). Pas bij een proef niets aan op de website: toon alleen wat er zou veranderen. Stel de skill bij
-   tot de gebruiker tevreden is.
-7. **Aanbieden.** Kan deze app een skill als voorstel tonen dat de gebruiker zelf opslaat, doe dat dan. Geef anders de
-   volledige tekst in één blok en zeg dat de gebruiker die als eigen skill kan toevoegen in de instellingen van de app.
-   Gebruik een korte naam in kleine letters met streepjes die niet gelijk is aan een bestaande skill. Zeg in één zin
-   dat de skill alleen voor de gebruiker zelf is.
+3. **Stap 2 van 5: wanneer.** Vraag met keuzes wanneer je de vaste stap aanbiedt (tabel hierboven), in gewone woorden:
+   "terwijl je de voorbeeldversie bekijkt", "vlak voordat je publiceert", "zodra het live staat" of "alleen als je
+   erom vraagt".
+4. **Stap 3 van 5: bij welke wijzigingen.** Vraag met keuzes of de vaste stap bij elke wijziging past of alleen bij
+   een bepaald soort, met soorten die bij de wens passen ("alleen bij nieuwe artikelen", "alleen bij contactgegevens").
+5. **Zelf uitwerken**, zonder vraag aan de gebruiker:
+   - **Soort.** Leid het af uit stap 1:
+     - **Advies of tekst:** de skill geeft advies of schrijft een tekst (nieuwsbrief, bericht, checklist). Hij
+       verstuurt of plaatst niets; dat doet de gebruiker.
+     - **Website aanpassen:** de skill stelt voor wat er verandert, vraagt welke punten de gebruiker wil, en voert
+       die uit via `website-wijzigen`.
+   - **Overlap.** Bekijk de beschikbare skills met hetzelfde moment. Doen ze iets vergelijkbaars, stel dan bij de
+     proef een afbakening voor zodat ze elkaar niet in de weg zitten.
+   - **Schrijven.** Schrijf de skill volgens het sjabloon hieronder, met de vaste regels voor zijn soort en moment.
+     Hooguit zes stappen, in de woorden van de gebruiker. Schrijf alleen wat de skill nodig heeft; geen namen of
+     adressen die niet van de gebruiker komen.
+6. **Stap 4 van 5: proef.** Laat zien wat de vaste stap bij de laatste wijziging had opgeleverd (`status`, `ronde`,
+   `herstelpunten`). Pas bij een proef niets aan op de website: toon alleen wat er zou veranderen. Vraag met keuzes
+   of het zo goed is of wat er anders moet, en stel bij tot de gebruiker tevreden is.
+7. **Stap 5 van 5: opslaan.** Kan deze app een skill als voorstel tonen dat de gebruiker zelf opslaat, doe dat dan.
+   Geef anders de volledige tekst in één blok en leg in genummerde stappen uit hoe de gebruiker die als eigen skill
+   toevoegt in de instellingen van de app. Gebruik een korte naam in kleine letters met streepjes die niet gelijk is
+   aan een bestaande skill. Zeg in één zin dat de vaste stap alleen voor de gebruiker zelf is en vanaf nu op het
+   gekozen moment wordt aangeboden.
 
 ## Vaste regels
 
