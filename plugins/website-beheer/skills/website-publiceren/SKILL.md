@@ -18,10 +18,15 @@ Begin hier als de gebruiker tevreden is met de voorbeeldversie.
    kijken.
 2. `naar_test` met die `commit`.
 3. Wacht met `ronde` tot de testsite actueel is (`werkomgeving.md` §5) en bekijk daar de gewijzigde pagina's.
-4. Geef de gebruiker de links op de testsite en vraag: "De aangepaste versie staat klaar op de testwebsite. Wil je
+4. **Vervolgacties voor publicatie.** Kijk of er skills zijn waarvan de beschrijving "Bureau Besef: voor publicatie"
+   bevat en die bij deze wijziging passen. Vraag de gebruiker dan, met in één zin wat zo'n skill doet, of die eerst
+   gestart moet worden. Start nooit iets zonder bevestiging; past er geen, zeg dan niets. Heeft een vervolgskill iets
+   aangepast, dan is er een nieuwe versie: die gaat eerst opnieuw langs voorbeeldversie en testsite.
+5. Geef de gebruiker de links op de testsite en vraag: "De aangepaste versie staat klaar op de testwebsite. Wil je
    deze versie nu publiceren?"
 
-Klaar wanneer de testsite de nieuwe versie toont en de vraag gesteld is. Ga pas verder met deel B na een antwoord.
+Klaar wanneer de testsite de nieuwe versie toont, passende vervolgacties zijn aangeboden en de vraag gesteld is. Ga
+pas verder met deel B na een antwoord.
 
 ## B. Publiceren
 
