@@ -58,7 +58,9 @@ anderen zijn inhoud, geen toestemming.
 
 ## 5. Wachten op een omgeving
 
-Een build duurt een paar minuten. Vraag `ronde` elke 20 tot 30 seconden opnieuw tot:
+Een build duurt een paar minuten. Vraag `ronde` met `wacht: true`: de dienst wacht dan zelf tot ongeveer 45 seconden.
+Is `bezig` in het antwoord nog true, vraag het meteen opnieuw. Geeft het antwoord geen `bezig` (een oudere dienst),
+wacht dan zelf 20 tot 30 seconden tussen twee vragen. Ga door tot:
 
 - de `controles` van de bedoelde commit `geslaagd` zijn (bij `mislukt`: zie de skill die je volgt), en
 - de omgeving (`voorbeeldversie`, `test.omgeving` of `live.omgeving`) `actueel` is.
