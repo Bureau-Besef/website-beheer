@@ -1,6 +1,6 @@
 ---
 name: website-publiceren
-description: Breng een goedgekeurde voorbeeldversie naar de testsite en publiceer na expliciet akkoord op de live website. Gebruik wanneer de gebruiker tevreden is met de voorbeeldversie, of vraagt om iets live te zetten of te publiceren.
+description: Breng een goedgekeurde voorbeeldversie naar de testsite of, voor een publiceerder, direct live, en publiceer na expliciet akkoord op de live website. Gebruik wanneer de gebruiker tevreden is met de voorbeeldversie, of vraagt om iets live te zetten of te publiceren.
 ---
 
 # Naar test en publiceren
@@ -16,17 +16,27 @@ Begin hier als de gebruiker tevreden is met de voorbeeldversie.
 1. Controleer met `ronde` dat de controles van `ronde.commit` geslaagd zijn en de voorbeeldversie actueel is. Dat is
    de versie die de gebruiker heeft beoordeeld; is er sindsdien iets gewijzigd, laat de gebruiker dan eerst opnieuw
    kijken.
-2. `naar_test` met die `commit`.
-3. Wacht met `ronde` tot de testsite actueel is (`werkomgeving.md` §5) en bekijk daar de gewijzigde pagina's.
-4. **Vervolgacties voor publicatie.** Kijk of er skills zijn waarvan de beschrijving "Bureau Besef: voor publicatie"
+2. **Direct publiceren.** Is de gebruiker publiceerder (de rol staat in `status`) en is `nietLive` leeg (op de
+   testsite wacht verder niets), dan kan de voorbeeldversie meteen live. Bied eerst passende vervolgacties aan (stap
+   5) en vraag dan: "Wil je deze versie meteen publiceren op de live website, of eerst op de testwebsite bekijken?"
+   - Bij een ondubbelzinnig "ja, publiceer": `publiceer` met `voorbeeld: true`, `commit` = `ronde.commit` en in
+     `akkoord` de bevestiging letterlijk. Antwoordt de dienst dat hij wacht, vraag `publiceer` dan opnieuw met de
+     `commit` uit het antwoord en zonder `voorbeeld`. Ga daarna verder bij deel B, stap 3.
+   - Weigert de dienst de directe route, meld dan kort dat de versie eerst via de testsite gaat en ga door met stap 3.
+     Weigert hij omdat de voorbeeldversie veranderd is, laat de gebruiker dan eerst opnieuw kijken.
+   - Wil de gebruiker eerst de testsite zien, of is een van de voorwaarden niet waar, ga dan door met stap 3.
+3. `naar_test` met die `commit`.
+4. Wacht met `ronde` tot de testsite actueel is (`werkomgeving.md` §5) en bekijk daar de gewijzigde pagina's.
+5. **Vervolgacties voor publicatie.** Kijk of er skills zijn waarvan de beschrijving "Bureau Besef: voor publicatie"
    bevat en die bij deze wijziging passen. Vraag de gebruiker dan, met in één zin wat zo'n skill doet, of die eerst
    gestart moet worden. Start nooit iets zonder bevestiging; past er geen, zeg dan niets. Heeft een vervolgskill iets
    aangepast, dan is er een nieuwe versie: die gaat eerst opnieuw langs voorbeeldversie en testsite.
-5. Geef de gebruiker de links op de testsite en vraag: "De aangepaste versie staat klaar op de testwebsite. Wil je
+6. Geef de gebruiker de links op de testsite en vraag: "De aangepaste versie staat klaar op de testwebsite. Wil je
    deze versie nu publiceren?"
 
-Klaar wanneer de testsite de nieuwe versie toont, passende vervolgacties zijn aangeboden en de vraag gesteld is. Ga
-pas verder met deel B na een antwoord.
+Klaar wanneer de versie direct gepubliceerd is (verder bij deel B, stap 3), of wanneer de testsite de nieuwe versie
+toont, passende vervolgacties zijn aangeboden en de vraag gesteld is. Ga pas verder met deel B na een
+antwoord.
 
 ## B. Publiceren
 
